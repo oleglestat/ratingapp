@@ -47,6 +47,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C19B7451EDDD95900339703 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C22B1041EC5B0E00079A583 /* RequestViewController.swift */,
+				7C82E6D81EDC1A04005F33B6 /* PlayerDetailsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7C19B7461EDDD96C00339703 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */,
+				7C8DCEE31ECE2C3300990D95 /* TanksAPI.swift */,
+				7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		7C19B7471EDDD97A00339703 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7CD1242E1ECEC71C009EB1B2 /* Player.swift */,
+				7C64FEFA1ED36946005979E8 /* ExpectedTankValues.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 		7CB45F771EC5A97800A81C34 = {
 			isa = PBXGroup;
 			children = (
@@ -71,13 +99,9 @@
 				7CB45F8A1EC5A97800A81C34 /* Assets.xcassets */,
 				7CB45F8C1EC5A97800A81C34 /* LaunchScreen.storyboard */,
 				7CB45F8F1EC5A97800A81C34 /* Info.plist */,
-				7C22B1041EC5B0E00079A583 /* RequestViewController.swift */,
-				7C8DCEE31ECE2C3300990D95 /* TanksAPI.swift */,
-				7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */,
-				7CD1242E1ECEC71C009EB1B2 /* Player.swift */,
-				7C64FEFA1ED36946005979E8 /* ExpectedTankValues.swift */,
-				7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */,
-				7C82E6D81EDC1A04005F33B6 /* PlayerDetailsViewController.swift */,
+				7C19B7451EDDD95900339703 /* ViewControllers */,
+				7C19B7461EDDD96C00339703 /* API */,
+				7C19B7471EDDD97A00339703 /* Entities */,
 			);
 			path = WN8;
 			sourceTree = "<group>";

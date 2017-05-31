@@ -85,6 +85,7 @@ class RequestViewController: UIViewController, UITextFieldDelegate, UITableViewD
 //				let navigationController = segue.destination as! UINavigationController
 //				let controller = navigationController.topViewController as! PlayerDetailsViewController
 				let controller = segue.destination as! PlayerDetailsViewController
+				controller.store = self.store
 				controller.player = self.playersFound[indexPath.row]
 				if let value = self.expValues {
 					controller.expValues = value

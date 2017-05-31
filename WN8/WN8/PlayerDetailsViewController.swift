@@ -10,13 +10,14 @@ import UIKit
 
 class PlayerDetailsViewController: UIViewController {
 	
+	var store: DataStore!
 	var player: Player!
 	var expValues: [expTank]?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = player.nickname
-		print(player.description)
+		//store.fetchPlayerVehicleData()
 	}
 
 }
