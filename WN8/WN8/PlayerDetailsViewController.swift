@@ -14,10 +14,24 @@ class PlayerDetailsViewController: UIViewController {
 	var player: Player!
 	var expValues: [expTank]?
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		store.fetchVehicleDataOf(player) {
+			(vehicleResults) -> Void in
+			
+			switch vehicleResults {
+			case let .success(vehicles):
+				self.player.tanks = vehicles
+			case let .failure(error):
+				print("Error fetching players: \(error)")
+			}
+		}
+	}
+
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = player.nickname
-		//store.fetchPlayerVehicleData()
 	}
 
 }

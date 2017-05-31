@@ -19,7 +19,7 @@ enum ExpTankValues {
 }
 
 enum PlayerVehicle {
-	case success([Player.Tank])
+	case success([Tank])
 	case failure(Error)
 }
 
@@ -53,7 +53,6 @@ class DataStore {
 		guard let jsonData = data else {
 			return .failure(error!)
 		}
-		
 		return TanksAPI.players(fromJSON: jsonData)
 	}
 	
@@ -64,15 +63,18 @@ class DataStore {
 		let task = session.dataTask(with: request) {
 			(data, response, error) -> Void in
 			// parsing JSON data from server
-			let result = self.
+			let result = self.processVehiclesRequest(data: data, error: error)
+			OperationQueue.main.addOperation {
+				completion(result)
+			}
 		}
+		task.resume()
 	}
 	
 	private func processVehiclesRequest(data: Data?, error: Error?) -> PlayerVehicle {
 		guard let jsonData = data else {
 			return .failure(error!)
 		}
-		
 		return TanksAPI.vehicles(fromJSON: jsonData)
 	}
 	
@@ -96,7 +98,6 @@ class DataStore {
 		guard let jsonData = data else {
 			return .failure(error!)
 		}
-		
 		return WNEfficiencyAPI.expTankValues(fromJSON: jsonData)
 	}
 }

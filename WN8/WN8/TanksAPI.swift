@@ -90,6 +90,7 @@ struct TanksAPI {
 		}
 	}
 	
+	// method to parse JSON and return array of tanks from api
 	static func vehicles(fromJSON data: Data) -> PlayerVehicle {
 		do {
 			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
@@ -100,13 +101,20 @@ struct TanksAPI {
 					return .failure(apiError.invalidJSONData)
 			}
 			// TODO: WTF with .self?
-			var finalVehicles = [Player.Tank.self]
+			var finalVehicles = [Tank]()
 			
 			for tankJSON in vehiclesArray {
 				if let tank = tank(fromJSON: tankJSON) {
 					finalVehicles.append(tank)
 				}
 			}
+			
+			if finalVehicles.isEmpty && !vehiclesArray.isEmpty {
+				// we weren't able to parse any of the players
+				// Maybe the JSON format for players has changed
+				return .failure(apiError.invalidJSONData)
+			}
+			return .success(finalVehicles)
 		} catch let error {
 			return .failure(error)
 		}
@@ -124,7 +132,7 @@ struct TanksAPI {
 	}
 	
 	// method to created Tank object
-	private static func tank(fromJSON json: [AnyHashable:Any]) -> Player.Tank? {
+	private static func tank(fromJSON json: [AnyHashable:Any]) -> Tank? {
 		guard
 			let accountID = json["account_id"] as? Int,
 			let battleLifeTime = json["battle_life_time"] as? Int,
@@ -185,7 +193,9 @@ struct TanksAPI {
 			// Don't have enought information to construct a Player
 			return nil
 		}
-		return 
+		let allTemp = AllTank(spotted: allSpotted, piercingsReceived: allPiercingsReceived, hits: allHits, damageAssistedTrack: allDamageAssistedTrack, wins: allWins, losses: allLosses, noDamageDirectHitsReceived: allNoDamageDirectHitsReceived, capturePoints: allCapturePoints, battles: allBattles, damageDealt: allDamageDealt, explosionHits: allExplosionHits, damageReceived: allDamageReceived, piercings: allPiercings, shots: allShots, explosionHitsReceived: allExplosionHitsReceived, damageAssistedRadio: allDamageAssistedRadio, xp: allXp, directHitsReceived: allDirectHitsReceived, frags: allFrags, survivedBattles: allSurvivedBattles, droppedCapturePoints: allDroppedCapturePoints)
+		let companyTemp = CompanyTank(spotted: companySpotted, piercingsReceived: companyPiercingsReceived, hits: companyHits, damageAssistedTrack: companyDamageAssistedTrack, wins: companyWins, losses: companyLosses, noDamageDirectHitsReceived: companyNoDamageDirectHitsReceived, capturePoints: companyCapturePoints, battles: companyBattles, damageDealt: companyDamageDealt, explosionHits: companyExplosionHits, damageReceived: companyDamageReceived, piercings: companyPiercings, shots: companyShots, explosionHitsReceived: companyExplosionHitsReceived, damageAssistedRadio: companyDamageAssistedRadio, xp: companyXp, directHitsReceived: companyDirectHitsReceived, frags: companyFrags, survivedBattles: companySurvivedBattles, droppedCapturePoints: companyDroppedCapturePoints)
+		return Tank(tankID: tankID, inGarage: inGarage, battleLifeTime: battleLifeTime, markOfMastery: markOfMastery, frags: frags, maxFrags: maxFrags, inGarageUpdated: inGarageUpdated, treesCut: treesCut, maxXp: maxXP, accountID: accountID, lastBattleTime: lastBattleTime, all: allTemp, company: companyTemp)
 	}
 }
 
