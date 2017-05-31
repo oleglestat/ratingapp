@@ -22,6 +22,7 @@ class PlayerDetailsViewController: UIViewController {
 			switch vehicleResults {
 			case let .success(vehicles):
 				self.player.tanks = vehicles
+				print("\(self.player.nickname) got \(vehicles.count) tanks")
 			case let .failure(error):
 				print("Error fetching players: \(error)")
 			}

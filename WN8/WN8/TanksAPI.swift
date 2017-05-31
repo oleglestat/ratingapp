@@ -95,23 +95,25 @@ struct TanksAPI {
 		do {
 			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
 			guard
-			let jsonDictionary = jsonObject as? [AnyHashable:Any],
-				let vehiclesArray = jsonDictionary["data"] as? [[String:Any]] else {
+				let jsonDictionary = jsonObject as? [AnyHashable:Any],
+				let data = jsonDictionary["data"] as? [String:Any],
+				// TODO: need a way to pass here player ID
+				let vehiclesArray = data["1073975363"] as? [[String:Any]] else {
 					// The JSON structure doesn't match our expectations
+					print("lol")
 					return .failure(apiError.invalidJSONData)
 			}
-			// TODO: WTF with .self?
 			var finalVehicles = [Tank]()
-			
 			for tankJSON in vehiclesArray {
 				if let tank = tank(fromJSON: tankJSON) {
 					finalVehicles.append(tank)
 				}
 			}
-			
 			if finalVehicles.isEmpty && !vehiclesArray.isEmpty {
 				// we weren't able to parse any of the players
 				// Maybe the JSON format for players has changed
+				// TODO: solve problem, why i'm getting error here
+				print("lol2")
 				return .failure(apiError.invalidJSONData)
 			}
 			return .success(finalVehicles)
