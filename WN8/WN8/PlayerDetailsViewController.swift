@@ -28,7 +28,6 @@ class PlayerDetailsViewController: UIViewController {
 		}
 	}
 
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = player.nickname

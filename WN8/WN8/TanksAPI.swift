@@ -51,7 +51,6 @@ struct TanksAPI {
 	static func playerVehicleURL(playerID: String) -> URL {
 		return wotURL(method: .playerVehicleData, parameters: ["account_id": playerID])
 	}
-		
 	
 	// MARK: - method to parse JSON and return array of players from api
 	static func players(fromJSON data: Data) -> PlayersResults {
@@ -80,7 +79,6 @@ struct TanksAPI {
 			return .failure(error)
 		}
 	}
-	
 	
 	// method to create Player object
 	private static func player(fromJSON json: [AnyHashable:Any]) -> Player? {
