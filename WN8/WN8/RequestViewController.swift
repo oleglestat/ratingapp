@@ -52,7 +52,6 @@ class RequestViewController: UIViewController {
 			}
 		}
 	}
-	
 }
 
 // MARK: - handling search field interactions
@@ -90,9 +89,7 @@ extension RequestViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 		let player = playersFound[indexPath.row]
-		
 		cell.textLabel?.text = player.nickname
-		
 		return cell
 	}
 }
