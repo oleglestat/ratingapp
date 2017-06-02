@@ -21,33 +21,24 @@ struct WNEfficiencyAPI {
 	static func wnURL() -> URL {
 		var components = URLComponents(string: baseURLString)!
 		components.path = "/exp/expected_tank_values_30.json"
-		
 		return components.url!
 	}
 	
 	static func expTankValues(fromJSON data: Data) -> ExpTankValues {
 		do {
 			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-			
-			//print(jsonObject)
-			
 			guard
 				let jsonDictionary = jsonObject as? [AnyHashable:Any],
 				let tanksArray = jsonDictionary["data"] as? [[String:Any]] else {
 					// The JSON structure doesn't match our expectations
 					return .failure(wnApiError.invalidJSONData)
 			}
-			
-			//print(tanksArray)
-			
 			var expectedValues = [expTank]()
-			
 			for tankJSON in tanksArray {
 				if let tank = tank(fromJSON: tankJSON) {
 					expectedValues.append(tank)
 				}
 			}
-			
 			if expectedValues.isEmpty && !tanksArray.isEmpty {
 				return .failure(wnApiError.invalidJSONData)
 			}
@@ -67,7 +58,6 @@ struct WNEfficiencyAPI {
 			let expWinRate = json["expWinRate"] as? Int else {
 				return nil
 		}
-		
 		return expTank(tankID: tankID, frags: expFrag, damage: expDamage, spot: expSpot, def: expDef, winRate: expWinRate)
 	}
 }

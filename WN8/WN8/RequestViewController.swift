@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RequestViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class RequestViewController: UIViewController {
 	
 	@IBOutlet weak var searchField: UITextField!
 	@IBOutlet weak var tableView: UITableView!
@@ -40,6 +40,24 @@ class RequestViewController: UIViewController, UITextFieldDelegate, UITableViewD
 		}
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "PlayerDetail" {
+			if let indexPath = tableView.indexPathForSelectedRow {
+				let controller = segue.destination as! PlayerDetailsViewController
+				controller.store = self.store
+				controller.player = self.playersFound[indexPath.row]
+				if let value = self.expValues {
+					controller.expValues = value
+				}
+			}
+		}
+	}
+	
+}
+
+// MARK: - handling search field interactions
+extension RequestViewController: UITextFieldDelegate {
+	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		searchForPlayer(textField)
@@ -50,7 +68,7 @@ class RequestViewController: UIViewController, UITextFieldDelegate, UITableViewD
 		if let nickname = textField.text, !nickname.isEmpty {
 			store.fetchPlayersData(name: nickname) {
 				(playerResult) -> Void in
-
+				
 				switch playerResult {
 				case let .success(players):
 					self.playersFound = players
@@ -60,6 +78,10 @@ class RequestViewController: UIViewController, UITextFieldDelegate, UITableViewD
 			}
 		}
 	}
+}
+
+// MARK: - Data source for table
+extension RequestViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return playersFound.count
@@ -73,25 +95,4 @@ class RequestViewController: UIViewController, UITextFieldDelegate, UITableViewD
 		
 		return cell
 	}
-	
-//	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		//tableView.deselectRow(at: indexPath, animated: true)
-//		performSegue(withIdentifier: "PlayerDetail", sender: self)
-//	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "PlayerDetail" {
-			if let indexPath = tableView.indexPathForSelectedRow {
-//				let navigationController = segue.destination as! UINavigationController
-//				let controller = navigationController.topViewController as! PlayerDetailsViewController
-				let controller = segue.destination as! PlayerDetailsViewController
-				controller.store = self.store
-				controller.player = self.playersFound[indexPath.row]
-				if let value = self.expValues {
-					controller.expValues = value
-				}
-			}
-		}
-	}
-	
 }

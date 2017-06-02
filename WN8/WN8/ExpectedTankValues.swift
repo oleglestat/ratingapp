@@ -18,7 +18,6 @@ class expTank {
 	let expSpot: Int
 	let expDef: Int
 	let expWinRate: Int
-	
 	init(tankID: Int, frags: Int, damage: Int, spot: Int, def: Int, winRate: Int) {
 		self.tankID = tankID
 		expFrag = frags

@@ -16,9 +16,8 @@ class PlayerDetailsViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		store.fetchVehicleDataOf(player) {
+    store.fetchVehicleDataOf(player) {
 			(vehicleResults) -> Void in
-			
 			switch vehicleResults {
 			case let .success(vehicles):
 				self.player.tanks = vehicles

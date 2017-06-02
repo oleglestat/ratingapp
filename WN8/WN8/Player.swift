@@ -18,7 +18,6 @@ class Player {
 	var lastBattleTime: Int?
 	var statistics: Statistics?
 	var tanks: [Tank]?
-	
 	init(nickname: String, playerID: Int) {
 		self.nickname = nickname
 		self.playerID = playerID
@@ -78,7 +77,6 @@ struct Company {
 	var droppedCapturePoints: Int?
 }
 
-
 struct Tank {
 	let tankID: Int?
 	var battleLifeTime: Int?
@@ -94,9 +92,6 @@ struct Tank {
 //	var inGarageUpdated: Int?
 //	var frags: [Int]?
 //	var inGarage: Bool?
-
-
-
 }
 
 struct AllTank {

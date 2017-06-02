@@ -26,13 +26,12 @@ struct TanksAPI {
 	private static let baseURLString = "https://api-ps4-console.worldoftanks.com"
 	private static let apiKey = "5b059db003a2fef6bc7b24967de9e50e"
 	
-	// method for building urld for request. Wont be visible to rest of the project
+	// MARK: - method for building urld for request. Wont be visible to rest of the project
 	private static func wotURL(method: Method, parameters: [String:String]?) -> URL {
 		var components = URLComponents(string: baseURLString)!
 		components.path = method.rawValue
 		var queryItems = [URLQueryItem]()
 		queryItems.append(URLQueryItem(name: "application_id", value: apiKey))
-		
 		if let additionalParams = parameters {
 			for (key, value) in additionalParams {
 				let item = URLQueryItem(name: key, value: value)
@@ -40,7 +39,6 @@ struct TanksAPI {
 			}
 		}
 		components.queryItems = queryItems
-		
 		return components.url!
 	}
 	
@@ -55,24 +53,17 @@ struct TanksAPI {
 	}
 		
 	
-	// method to parse JSON and return array of players from api
+	// MARK: - method to parse JSON and return array of players from api
 	static func players(fromJSON data: Data) -> PlayersResults {
 		do {
 			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-			
-			//print(jsonObject)
-			
 			guard
 				let jsonDictionary = jsonObject as? [AnyHashable:Any],
 				let playersArray = jsonDictionary["data"] as? [[String:Any]] else {
 					// The JSON structure doesn't match our expectations
 					return .failure(apiError.invalidJSONData)
 			}
-			
-			//print(playersArray)
-			
 			var finalPlayers = [Player]()
-			
 			for playerJSON in playersArray {
 				if let player = player(fromJSON: playerJSON) {
 					finalPlayers.append(player)
@@ -90,36 +81,6 @@ struct TanksAPI {
 		}
 	}
 	
-	// method to parse JSON and return array of tanks from api
-	static func vehicles(fromJSON data: Data, player: Player) -> PlayerVehicle {
-		do {
-			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
-			guard
-				let jsonDictionary = jsonObject as? [AnyHashable:Any],
-				let data = jsonDictionary["data"] as? [String:Any],
-				// TODO: need a way to pass here player ID
-				let vehiclesArray = data["\(player.playerID)"] as? [[String:Any]] else {
-					// The JSON structure doesn't match our expectations
-					return .failure(apiError.invalidJSONData)
-			}
-
-			var finalVehicles = [Tank]()
-			for tankJSON in vehiclesArray {
-				if let tank = tank(fromJSON: tankJSON) {
-					finalVehicles.append(tank)
-				}
-			}
-			if finalVehicles.isEmpty && !vehiclesArray.isEmpty {
-				// we weren't able to parse any of the players
-				// Maybe the JSON format for players has changed
-				// TODO: solve problem, why i'm getting error here
-				return .failure(apiError.invalidJSONData)
-			}
-			return .success(finalVehicles)
-		} catch let error {
-			return .failure(error)
-		}
-	}
 	
 	// method to create Player object
 	private static func player(fromJSON json: [AnyHashable:Any]) -> Player? {
@@ -130,6 +91,34 @@ struct TanksAPI {
 				return nil
 		}
 		return Player(nickname: nickname, playerID: playerID)
+	}
+	
+	// MARK: - method to parse JSON and return array of tanks from api
+	static func vehicles(fromJSON data: Data, player: Player) -> PlayerVehicle {
+		do {
+			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+			guard
+				let jsonDictionary = jsonObject as? [AnyHashable:Any],
+				let data = jsonDictionary["data"] as? [String:Any],
+				let vehiclesArray = data["\(player.playerID)"] as? [[String:Any]] else {
+					// The JSON structure doesn't match our expectations
+					return .failure(apiError.invalidJSONData)
+			}
+			var finalVehicles = [Tank]()
+			for tankJSON in vehiclesArray {
+				if let tank = tank(fromJSON: tankJSON) {
+					finalVehicles.append(tank)
+				}
+			}
+			if finalVehicles.isEmpty && !vehiclesArray.isEmpty {
+				// we weren't able to parse any of the players
+				// Maybe the JSON format for players has changed
+				return .failure(apiError.invalidJSONData)
+			}
+			return .success(finalVehicles)
+		} catch let error {
+			return .failure(error)
+		}
 	}
 	
 	// method to created Tank object

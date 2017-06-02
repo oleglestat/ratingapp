@@ -32,7 +32,7 @@ class DataStore {
 		return URLSession(configuration: config)
 	}()
 	
-	// Requesting players
+	// MARK: - Requesting players
 	
 	// creating url and passing it to request object
 	func fetchPlayersData(name: String, completion: @escaping (PlayersResults) -> Void) {
@@ -56,7 +56,7 @@ class DataStore {
 		return TanksAPI.players(fromJSON: jsonData)
 	}
 	
-	// Requesting players vehicles
+	// MARK: - Requesting players vehicles
 	func fetchVehicleDataOf(_ player: Player, completion: @escaping (PlayerVehicle) -> Void) {
 		let url = TanksAPI.playerVehicleURL(playerID: String(player.playerID))
 		let request = URLRequest(url: url)
@@ -78,8 +78,7 @@ class DataStore {
 		return TanksAPI.vehicles(fromJSON: jsonData, player: player)
 	}
 	
-	// Requesting expected values
-	
+	// MARK: - Requesting expected values	
 	func fetchExpectedValuesData(completion: @escaping (ExpTankValues) -> Void) {
 		let url = WNEfficiencyAPI.wnURL()
 		let request = URLRequest(url: url)
