@@ -81,18 +81,22 @@ struct Company {
 
 struct Tank {
 	let tankID: Int?
-	var inGarage: Bool?
 	var battleLifeTime: Int?
 	var markOfMastery: Int?
-	var frags: [Int]?
 	var maxFrags: Int?
-	var inGarageUpdated: Int?
 	var treesCut: Int?
 	var maxXp: Int?
 	var accountID: Int?
 	var lastBattleTime: Int?
 	var all: AllTank?
 	var company: CompanyTank?
+//	Variables that need authentication on wargaming servers to be not <null>
+//	var inGarageUpdated: Int?
+//	var frags: [Int]?
+//	var inGarage: Bool?
+
+
+
 }
 
 struct AllTank {

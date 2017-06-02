@@ -63,7 +63,7 @@ class DataStore {
 		let task = session.dataTask(with: request) {
 			(data, response, error) -> Void in
 			// parsing JSON data from server
-			let result = self.processVehiclesRequest(data: data, error: error)
+			let result = self.processVehiclesRequest(data: data, player: player, error: error)
 			OperationQueue.main.addOperation {
 				completion(result)
 			}
@@ -71,11 +71,11 @@ class DataStore {
 		task.resume()
 	}
 	
-	private func processVehiclesRequest(data: Data?, error: Error?) -> PlayerVehicle {
+	private func processVehiclesRequest(data: Data?, player: Player, error: Error?) -> PlayerVehicle {
 		guard let jsonData = data else {
 			return .failure(error!)
 		}
-		return TanksAPI.vehicles(fromJSON: jsonData)
+		return TanksAPI.vehicles(fromJSON: jsonData, player: player)
 	}
 	
 	// Requesting expected values

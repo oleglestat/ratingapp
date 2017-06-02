@@ -91,18 +91,18 @@ struct TanksAPI {
 	}
 	
 	// method to parse JSON and return array of tanks from api
-	static func vehicles(fromJSON data: Data) -> PlayerVehicle {
+	static func vehicles(fromJSON data: Data, player: Player) -> PlayerVehicle {
 		do {
 			let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
 			guard
 				let jsonDictionary = jsonObject as? [AnyHashable:Any],
 				let data = jsonDictionary["data"] as? [String:Any],
 				// TODO: need a way to pass here player ID
-				let vehiclesArray = data["1073975363"] as? [[String:Any]] else {
+				let vehiclesArray = data["\(player.playerID)"] as? [[String:Any]] else {
 					// The JSON structure doesn't match our expectations
-					print("lol")
 					return .failure(apiError.invalidJSONData)
 			}
+
 			var finalVehicles = [Tank]()
 			for tankJSON in vehiclesArray {
 				if let tank = tank(fromJSON: tankJSON) {
@@ -113,7 +113,6 @@ struct TanksAPI {
 				// we weren't able to parse any of the players
 				// Maybe the JSON format for players has changed
 				// TODO: solve problem, why i'm getting error here
-				print("lol2")
 				return .failure(apiError.invalidJSONData)
 			}
 			return .success(finalVehicles)
@@ -138,15 +137,12 @@ struct TanksAPI {
 		guard
 			let accountID = json["account_id"] as? Int,
 			let battleLifeTime = json["battle_life_time"] as? Int,
-			let inGarageUpdated = json["in_garage_updated"] as? Int,
 			let lastBattleTime = json["last_battle_time"] as? Int,
 			let markOfMastery = json["mark_of_mastery"] as? Int,
 			let maxFrags = json["max_frags"] as? Int,
 			let maxXP = json["max_xp"] as? Int,
 			let tankID = json["tank_id"] as? Int,
 			let treesCut = json["trees_cut"] as? Int,
-			let frags = json["frags"] as? [Int],
-			let inGarage = json["in_garage"] as? Bool,
 			let all = json["all"] as? [String:Any],
 			let allBattles = all["battles"] as? Int,
 			let allCapturePoints = all["capture_points"] as? Int,
@@ -197,7 +193,7 @@ struct TanksAPI {
 		}
 		let allTemp = AllTank(spotted: allSpotted, piercingsReceived: allPiercingsReceived, hits: allHits, damageAssistedTrack: allDamageAssistedTrack, wins: allWins, losses: allLosses, noDamageDirectHitsReceived: allNoDamageDirectHitsReceived, capturePoints: allCapturePoints, battles: allBattles, damageDealt: allDamageDealt, explosionHits: allExplosionHits, damageReceived: allDamageReceived, piercings: allPiercings, shots: allShots, explosionHitsReceived: allExplosionHitsReceived, damageAssistedRadio: allDamageAssistedRadio, xp: allXp, directHitsReceived: allDirectHitsReceived, frags: allFrags, survivedBattles: allSurvivedBattles, droppedCapturePoints: allDroppedCapturePoints)
 		let companyTemp = CompanyTank(spotted: companySpotted, piercingsReceived: companyPiercingsReceived, hits: companyHits, damageAssistedTrack: companyDamageAssistedTrack, wins: companyWins, losses: companyLosses, noDamageDirectHitsReceived: companyNoDamageDirectHitsReceived, capturePoints: companyCapturePoints, battles: companyBattles, damageDealt: companyDamageDealt, explosionHits: companyExplosionHits, damageReceived: companyDamageReceived, piercings: companyPiercings, shots: companyShots, explosionHitsReceived: companyExplosionHitsReceived, damageAssistedRadio: companyDamageAssistedRadio, xp: companyXp, directHitsReceived: companyDirectHitsReceived, frags: companyFrags, survivedBattles: companySurvivedBattles, droppedCapturePoints: companyDroppedCapturePoints)
-		return Tank(tankID: tankID, inGarage: inGarage, battleLifeTime: battleLifeTime, markOfMastery: markOfMastery, frags: frags, maxFrags: maxFrags, inGarageUpdated: inGarageUpdated, treesCut: treesCut, maxXp: maxXP, accountID: accountID, lastBattleTime: lastBattleTime, all: allTemp, company: companyTemp)
+		return Tank(tankID: tankID, battleLifeTime: battleLifeTime, markOfMastery: markOfMastery, maxFrags: maxFrags, treesCut: treesCut, maxXp: maxXP, accountID: accountID, lastBattleTime: lastBattleTime, all: allTemp, company: companyTemp)
 	}
 }
 
