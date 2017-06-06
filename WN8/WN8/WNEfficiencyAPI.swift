@@ -20,7 +20,7 @@ struct WNEfficiencyAPI {
 	
 	static func wnURL() -> URL {
 		var components = URLComponents(string: baseURLString)!
-		components.path = "/exp/expected_tank_values_30.json"
+		components.path = "/exp/expected_tank_values_latest.json"
 		return components.url!
 	}
 	
