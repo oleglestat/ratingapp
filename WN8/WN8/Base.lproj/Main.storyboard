@@ -101,6 +101,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Player Detail" id="nAr-HA-W1Q"/>
+                    <connections>
+                        <outlet property="testLabel" destination="Gts-vi-Tuo" id="ox0-dx-a2v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYf-pB-m1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

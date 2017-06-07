@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C1859AF1EE695950018814C /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1859AE1EE695950018814C /* Calculator.swift */; };
 		7C22B1051EC5B0E00079A583 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22B1041EC5B0E00079A583 /* RequestViewController.swift */; };
 		7C64FEFB1ED36946005979E8 /* ExpectedTankValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64FEFA1ED36946005979E8 /* ExpectedTankValues.swift */; };
 		7C82E6D91EDC1A04005F33B6 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C82E6D81EDC1A04005F33B6 /* PlayerDetailsViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C1859AE1EE695950018814C /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		7C22B1041EC5B0E00079A583 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		7C64FEFA1ED36946005979E8 /* ExpectedTankValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectedTankValues.swift; sourceTree = "<group>"; };
 		7C82E6D81EDC1A04005F33B6 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */,
 				7C8DCEE31ECE2C3300990D95 /* TanksAPI.swift */,
 				7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */,
+				7C1859AE1EE695950018814C /* Calculator.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				7C82E6D91EDC1A04005F33B6 /* PlayerDetailsViewController.swift in Sources */,
 				7C8DCEE41ECE2C3300990D95 /* TanksAPI.swift in Sources */,
 				7C64FEFB1ED36946005979E8 /* ExpectedTankValues.swift in Sources */,
+				7C1859AF1EE695950018814C /* Calculator.swift in Sources */,
 				7CDCB5521ED6BA4600342DAB /* WNEfficiencyAPI.swift in Sources */,
 				7CD1242F1ECEC71C009EB1B2 /* Player.swift in Sources */,
 				7C22B1051EC5B0E00079A583 /* RequestViewController.swift in Sources */,

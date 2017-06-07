@@ -178,9 +178,58 @@ struct TanksAPI {
 			// Don't have enought information to construct a Player
 			return nil
 		}
-		let allTemp = AllTank(spotted: allSpotted, piercingsReceived: allPiercingsReceived, hits: allHits, damageAssistedTrack: allDamageAssistedTrack, wins: allWins, losses: allLosses, noDamageDirectHitsReceived: allNoDamageDirectHitsReceived, capturePoints: allCapturePoints, battles: allBattles, damageDealt: allDamageDealt, explosionHits: allExplosionHits, damageReceived: allDamageReceived, piercings: allPiercings, shots: allShots, explosionHitsReceived: allExplosionHitsReceived, damageAssistedRadio: allDamageAssistedRadio, xp: allXp, directHitsReceived: allDirectHitsReceived, frags: allFrags, survivedBattles: allSurvivedBattles, droppedCapturePoints: allDroppedCapturePoints)
-		let companyTemp = CompanyTank(spotted: companySpotted, piercingsReceived: companyPiercingsReceived, hits: companyHits, damageAssistedTrack: companyDamageAssistedTrack, wins: companyWins, losses: companyLosses, noDamageDirectHitsReceived: companyNoDamageDirectHitsReceived, capturePoints: companyCapturePoints, battles: companyBattles, damageDealt: companyDamageDealt, explosionHits: companyExplosionHits, damageReceived: companyDamageReceived, piercings: companyPiercings, shots: companyShots, explosionHitsReceived: companyExplosionHitsReceived, damageAssistedRadio: companyDamageAssistedRadio, xp: companyXp, directHitsReceived: companyDirectHitsReceived, frags: companyFrags, survivedBattles: companySurvivedBattles, droppedCapturePoints: companyDroppedCapturePoints)
-		return Tank(tankID: tankID, battleLifeTime: battleLifeTime, markOfMastery: markOfMastery, maxFrags: maxFrags, treesCut: treesCut, maxXp: maxXP, accountID: accountID, lastBattleTime: lastBattleTime, all: allTemp, company: companyTemp)
+		let allTemp = AllTank(spotted: allSpotted,
+		                      piercingsReceived: allPiercingsReceived,
+		                      hits: allHits,
+		                      damageAssistedTrack: allDamageAssistedTrack,
+		                      wins: allWins,
+		                      losses: allLosses,
+		                      noDamageDirectHitsReceived: allNoDamageDirectHitsReceived,
+		                      capturePoints: allCapturePoints,
+		                      battles: allBattles,
+		                      damageDealt: allDamageDealt,
+		                      explosionHits: allExplosionHits,
+		                      damageReceived: allDamageReceived,
+		                      piercings: allPiercings,
+		                      shots: allShots,
+		                      explosionHitsReceived: allExplosionHitsReceived,
+		                      damageAssistedRadio: allDamageAssistedRadio,
+		                      xp: allXp,
+		                      directHitsReceived: allDirectHitsReceived,
+		                      frags: allFrags,
+		                      survivedBattles: allSurvivedBattles,
+		                      droppedCapturePoints: allDroppedCapturePoints)
+		let companyTemp = CompanyTank(spotted: companySpotted,
+		                              piercingsReceived: companyPiercingsReceived,
+		                              hits: companyHits,
+		                              damageAssistedTrack: companyDamageAssistedTrack,
+		                              wins: companyWins,
+		                              losses: companyLosses,
+		                              noDamageDirectHitsReceived: companyNoDamageDirectHitsReceived,
+		                              capturePoints: companyCapturePoints,
+		                              battles: companyBattles,
+		                              damageDealt: companyDamageDealt,
+		                              explosionHits: companyExplosionHits,
+		                              damageReceived: companyDamageReceived,
+		                              piercings: companyPiercings,
+		                              shots: companyShots,
+		                              explosionHitsReceived: companyExplosionHitsReceived,
+		                              damageAssistedRadio: companyDamageAssistedRadio,
+		                              xp: companyXp,
+		                              directHitsReceived: companyDirectHitsReceived,
+		                              frags: companyFrags,
+		                              survivedBattles: companySurvivedBattles,
+		                              droppedCapturePoints: companyDroppedCapturePoints)
+		return Tank(tankID: tankID,
+		            battleLifeTime: battleLifeTime,
+		            markOfMastery: markOfMastery,
+		            maxFrags: maxFrags,
+		            treesCut: treesCut,
+		            maxXp: maxXP,
+		            accountID: accountID,
+		            lastBattleTime: lastBattleTime,
+		            all: allTemp,
+		            company: companyTemp)
 	}
 }
 
