@@ -51,11 +51,11 @@ struct WNEfficiencyAPI {
 	private static func tank(fromJSON json: [AnyHashable:Any]) -> expTank? {
 		guard
 			let tankID = json["IDNum"] as? Int,
-			let expFrag = json["expFrag"] as? Int,
-			let expDamage = json["expDamage"] as? Int,
-			let expSpot = json["expSpot"] as? Int,
-			let expDef = json["expDef"] as? Int,
-			let expWinRate = json["expWinRate"] as? Int else {
+			let expFrag = json["expFrag"] as? Double,
+			let expDamage = json["expDamage"] as? Double,
+			let expSpot = json["expSpot"] as? Double,
+			let expDef = json["expDef"] as? Double,
+			let expWinRate = json["expWinRate"] as? Double else {
 				return nil
 		}
 		return expTank(tankID: tankID, frags: expFrag, damage: expDamage, spot: expSpot, def: expDef, winRate: expWinRate)

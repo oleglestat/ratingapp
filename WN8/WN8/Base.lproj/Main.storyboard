@@ -90,15 +90,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gts-vi-Tuo">
-                                <rect key="frame" x="166" y="72" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gts-vi-Tuo">
+                                <rect key="frame" x="16" y="72" width="343" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gts-vi-Tuo" secondAttribute="trailing" id="2Nz-g1-gfe"/>
+                            <constraint firstItem="Gts-vi-Tuo" firstAttribute="leading" secondItem="j4R-f8-FmK" secondAttribute="leadingMargin" id="5QJ-P6-Aou"/>
+                            <constraint firstItem="Gts-vi-Tuo" firstAttribute="top" secondItem="XXs-90-iJ3" secondAttribute="bottom" constant="8" id="kwF-WU-HDe"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Player Detail" id="nAr-HA-W1Q"/>
                     <connections>
@@ -107,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYf-pB-m1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882" y="137"/>
+            <point key="canvasLocation" x="1880.8" y="136.28185907046478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kj8-ZV-T4m">

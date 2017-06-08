@@ -13,12 +13,12 @@ import Foundation
 
 class expTank {
 	let tankID: Int
-	let expFrag: Int
-	let expDamage: Int
-	let expSpot: Int
-	let expDef: Int
-	let expWinRate: Int
-	init(tankID: Int, frags: Int, damage: Int, spot: Int, def: Int, winRate: Int) {
+	let expFrag: Double
+	let expDamage: Double
+	let expSpot: Double
+	let expDef: Double
+	let expWinRate: Double
+	init(tankID: Int, frags: Double, damage: Double, spot: Double, def: Double, winRate: Double) {
 		self.tankID = tankID
 		expFrag = frags
 		expDamage = damage
