@@ -231,5 +231,6 @@ struct TanksAPI {
 		            all: allTemp,
 		            company: companyTemp)
 	}
+  // TODO: - create call for player details
 }
 
