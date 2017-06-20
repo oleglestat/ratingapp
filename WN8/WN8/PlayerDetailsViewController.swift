@@ -46,9 +46,9 @@ class PlayerDetailsViewController: UIViewController {
         for value in exp {
           if value.tankID == tank.tankID {
             expValue = value
+            print(expValue!)
           }
         }
-//        let expValue = exp[tank.all?.tankID!]
         if let expValue = expValue {
         expectedTotals.expDamage += expValue.expDamage * Double((tank.all?.battles)!)
         expectedTotals.expSpot += expValue.expSpot * Double((tank.all?.battles)!)
