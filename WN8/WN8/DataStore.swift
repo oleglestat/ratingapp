@@ -13,6 +13,11 @@ enum PlayersResults {
 	case failure(Error)
 }
 
+enum PlayerResults {
+  case success(Player)
+  case failure(Error)
+}
+
 enum ExpTankValues {
 	case success([expTank])
 	case failure(Error)
