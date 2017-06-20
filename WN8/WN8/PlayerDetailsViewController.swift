@@ -59,7 +59,6 @@ class PlayerDetailsViewController: UIViewController {
             expValue = value
           }
         }
-//        let expValue = exp[tank.all?.tankID!]
         if let expValue = expValue {
         expectedTotals.expDamage += expValue.expDamage * Double((tank.all?.battles)!)
         expectedTotals.expSpot += expValue.expSpot * Double((tank.all?.battles)!)
@@ -77,7 +76,6 @@ class PlayerDetailsViewController: UIViewController {
     }
     return calculateWN8(achivedTotals, expectedTotals)
   }
-  // TODO: выставить правильные типы Double для ожидаемых значений, для танка, игрока и в формулах расчета статки
   
   func calculateWN8(_ tank: (damageDealt: Double, spotted: Double, frags: Double, droppedCapturePoints: Double, wins: Double, battles: Double),
                     _ exp: (expDamage: Double, expSpot: Double, expFrag: Double, expDef: Double, expWinRate: Double)) -> Int {
