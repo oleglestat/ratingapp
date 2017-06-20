@@ -15,6 +15,11 @@ class PlayerDetailsViewController: UIViewController {
 	var expValues: [expTank]!
 	
   @IBOutlet weak var testLabel: UILabel!
+  @IBOutlet weak var personalRationg: UILabel!
+  @IBOutlet weak var winRate: UILabel!
+  @IBOutlet weak var battles: UILabel!
+  @IBOutlet weak var averageDamage: UILabel!
+  @IBOutlet weak var killDeathRatio: UILabel!
   
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
@@ -35,9 +40,15 @@ class PlayerDetailsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = player.nickname
+//    let test = (self.player.statistics?.all?.wins)! / (self.player.statistics?.all?.battles)! * 100
+//    self.personalRationg.text = String(describing: self.player.globalRating)
+//    self.winRate.text = String(format: "%.2f", test)
+//    self.battles.text = String(describing: self.player.statistics?.all?.battles)
+//    self.averageDamage.text = String(format: "%.2f", (self.player.statistics?.all?.damageDealt)! / (self.player.statistics?.all?.battles)!)
+//    self.killDeathRatio.text = String(format: "%.2f", (self.player.statistics?.all?.frags)! / ((self.player.statistics?.all?.battles)! - (self.player.statistics?.all?.survivedBattles)!))
 	}
   
-  func calculateAccountWN8(player: Player, exp: [expTank]) -> Double {
+  func calculateAccountWN8(player: Player, exp: [expTank]) -> Int {
     var expectedTotals = (expDamage: 0.0, expSpot: 0.0, expFrag: 0.0, expDef: 0.0, expWinRate: 0.0)
     var achivedTotals = (damageDealt: 0.0, spotted: 0.0, frags: 0.0, droppedCapturePoints: 0.0, wins: 0.0, battles: 0.0)
     if let tanks = player.tanks {
@@ -69,7 +80,7 @@ class PlayerDetailsViewController: UIViewController {
   // TODO: выставить правильные типы Double для ожидаемых значений, для танка, игрока и в формулах расчета статки
   
   func calculateWN8(_ tank: (damageDealt: Double, spotted: Double, frags: Double, droppedCapturePoints: Double, wins: Double, battles: Double),
-                    _ exp: (expDamage: Double, expSpot: Double, expFrag: Double, expDef: Double, expWinRate: Double)) -> Double {
+                    _ exp: (expDamage: Double, expSpot: Double, expFrag: Double, expDef: Double, expWinRate: Double)) -> Int {
     let rDamage = tank.damageDealt / exp.expDamage
     let rSpot = tank.spotted / exp.expSpot
     let rFrag = tank.frags / exp.expFrag
@@ -85,6 +96,6 @@ class PlayerDetailsViewController: UIViewController {
     let c = 155.0 * rFragC*rSpotC
     let d = 75.0 * rDefC*rFragC
     let e = 145.0 * min(1.8, rWinC)
-    return a + b + c + d + e
+    return Int(a + b + c + d + e)
   }
 }
