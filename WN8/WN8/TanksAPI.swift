@@ -117,82 +117,76 @@ struct TanksAPI {
     guard
       let created = json["created_at"] as? Int,
       let updated = json["updated_at"] as? Int,
-      let privateInfo = json["private"] as? Int,
       let globalRating = json["global_rating"] as? Int,
-      let lastBattleTime = json["last_battle_time"] as? Int
-//      let statistics = json["statistics"] as? [String:Any]
-//      let statisticsMaxFragsTankID = statistics["max_frags_tank_id"] as? Int,
-//      let statisticsExplosionHits = statistics["explosion_hits"] as? Int,
-//      let statisticsMaxXpTankID = statistics["max_xp_tank_id"] as? Int,
-//      let statisticsDamageAssistedTrack = statistics["damage_assisted_track"] as? Int,
-//      let statisticsMaxXp = statistics["max_xp"] as? Int,
-//      let statisticsPiercings = statistics["piercings"] as? Int,
-//      let statisticsTreesCut = statistics["trees_cut"] as? Int,
-//      let statisticsPiercingsReceived = statistics["piercings_received"] as? Int,
-//      let statisticsNoDamageDirectHitsReceived = statistics["no_damage_direct_hits_received"] as? Int,
-//      let statisticsMaxFrags = statistics["max_frags"] as? Int,
-//      let statisticsExplosionHitsReceived = statistics["explosion_hits_received"] as? Int,
-//      let statisticsMaxDamageTankID = statistics["max_damage_tank_id"] as? Int,
-//      let statisticsFrags = statistics["frags"] as? Int,
-//      let statisticsDirectHitsReceived = statistics["direct_hits_received"] as? Int,
-//      let statisticsMaxDamage = statistics["max_damage"] as? Int,
-//      let statisticsDamageAssistedRadio = statistics["damage_assisted_radio"] as? Int,
-//      let statisticsAll = statistics["all"] as? [String:Any],
-//      let statisticsAllSpotted = statisticsAll["spotted"] as? Int,
-//      let statisticsAllHits = statisticsAll["hits"] as? Int,
-//      let statisticsAllWins = statisticsAll["wins"] as? Int,
-//      let statisticsAllLosses = statisticsAll["losses"] as? Int,
-//      let statisticsAllCapturePoints = statisticsAll["capture_points"] as? Int,
-//      let statisticsAllBattles = statisticsAll["battles"] as? Int,
-//      let statisticsAllDamageDealt = statisticsAll["damage_dealt"] as? Int,
-//      let statisticsAllDamageReceived = statisticsAll["damage_received"] as? Int,
-//      let statisticsAllShots = statisticsAll["shots"] as? Int,
-//      let statisticsAllXp = statisticsAll["xp"] as? Int,
-//      let statisticsAllFrags = statisticsAll["frags"] as? Int,
-//      let statisticsAllSurvivedBattles = statisticsAll["survived_battles"] as? Int,
-//      let statisticsAllDroppedCapturePoints = statisticsAll["dropped_capture_points"] as? Int
+      let lastBattleTime = json["last_battle_time"] as? Int,
+      let statistics = json["statistics"] as? [String:Any],
+      let statisticsMaxFragsTankID = statistics["max_frags_tank_id"] as? Int,
+      let statisticsExplosionHits = statistics["explosion_hits"] as? Int,
+      let statisticsMaxXpTankID = statistics["max_xp_tank_id"] as? Int,
+      let statisticsDamageAssistedTrack = statistics["damage_assisted_track"] as? Int,
+      let statisticsMaxXp = statistics["max_xp"] as? Int,
+      let statisticsPiercings = statistics["piercings"] as? Int,
+      let statisticsTreesCut = statistics["trees_cut"] as? Int,
+      let statisticsPiercingsReceived = statistics["piercings_received"] as? Int,
+      let statisticsNoDamageDirectHitsReceived = statistics["no_damage_direct_hits_received"] as? Int,
+      let statisticsMaxFrags = statistics["max_frags"] as? Int,
+      let statisticsExplosionHitsReceived = statistics["explosion_hits_received"] as? Int,
+      let statisticsMaxDamageTankID = statistics["max_damage_tank_id"] as? Int,
+      let statisticsDirectHitsReceived = statistics["direct_hits_received"] as? Int,
+      let statisticsMaxDamage = statistics["max_damage"] as? Int,
+      let statisticsDamageAssistedRadio = statistics["damage_assisted_radio"] as? Int,
+      let statisticsAll = statistics["all"] as? [String:Any],
+      let statisticsAllSpotted = statisticsAll["spotted"] as? Int,
+      let statisticsAllHits = statisticsAll["hits"] as? Int,
+      let statisticsAllWins = statisticsAll["wins"] as? Int,
+      let statisticsAllLosses = statisticsAll["losses"] as? Int,
+      let statisticsAllCapturePoints = statisticsAll["capture_points"] as? Int,
+      let statisticsAllBattles = statisticsAll["battles"] as? Int,
+      let statisticsAllDamageDealt = statisticsAll["damage_dealt"] as? Int,
+      let statisticsAllDamageReceived = statisticsAll["damage_received"] as? Int,
+      let statisticsAllShots = statisticsAll["shots"] as? Int,
+      let statisticsAllXp = statisticsAll["xp"] as? Int,
+      let statisticsAllFrags = statisticsAll["frags"] as? Int,
+      let statisticsAllSurvivedBattles = statisticsAll["survived_battles"] as? Int,
+      let statisticsAllDroppedCapturePoints = statisticsAll["dropped_capture_points"] as? Int
     else {
-      print(json)
-      print("json parse error")
       return nil
     }
-//    let statAll = All(spotted: statisticsAllSpotted,
-//                            hits: statisticsAllHits,
-//                            wins: statisticsAllWins,
-//                            losses: statisticsAllLosses,
-//                            capturePoints: statisticsAllCapturePoints,
-//                            battles: statisticsAllBattles,
-//                            damageDealt: statisticsAllDamageDealt,
-//                            damageReceived: statisticsAllDamageReceived,
-//                            shots: statisticsAllShots,
-//                            xp: statisticsAllXp,
-//                            frags: statisticsAllFrags,
-//                            survivedBattles: statisticsAllSurvivedBattles,
-//                            droppedCapturePoints: statisticsAllDroppedCapturePoints)
-//    let stat = Statistics(maxFragsTankID: statisticsMaxFragsTankID,
-//                                explosionHits: statisticsExplosionHits,
-//                                maxXpTankID: statisticsMaxXpTankID,
-//                                damageAssistedTrack: statisticsDamageAssistedTrack,
-//                                maxXp: statisticsMaxXp,
-//                                piercings: statisticsPiercings,
-//                                treesCut: statisticsTreesCut,
-//                                piercingsReceived: statisticsPiercingsReceived,
-//                                noDamageDirectHitsReceived: statisticsNoDamageDirectHitsReceived,
-//                                maxFrags: statisticsMaxFrags,
-//                                explosionHitsReceived: statisticsExplosionHitsReceived,
-//                                maxDamageTankID: statisticsMaxDamageTankID,
-//                                frags: statisticsFrags,
-//                                directHitsReceived: statisticsDirectHitsReceived,
-//                                maxDamage: statisticsMaxDamage,
-//                                damageAssistedRadio: statisticsDamageAssistedRadio,
-//                                all: statAll,
-//                                company: nil)
+    let statAll = All(spotted: statisticsAllSpotted,
+                            hits: statisticsAllHits,
+                            wins: statisticsAllWins,
+                            losses: statisticsAllLosses,
+                            capturePoints: statisticsAllCapturePoints,
+                            battles: statisticsAllBattles,
+                            damageDealt: statisticsAllDamageDealt,
+                            damageReceived: statisticsAllDamageReceived,
+                            shots: statisticsAllShots,
+                            xp: statisticsAllXp,
+                            frags: statisticsAllFrags,
+                            survivedBattles: statisticsAllSurvivedBattles,
+                            droppedCapturePoints: statisticsAllDroppedCapturePoints)
+    let stat = Statistics(maxFragsTankID: statisticsMaxFragsTankID,
+                                explosionHits: statisticsExplosionHits,
+                                maxXpTankID: statisticsMaxXpTankID,
+                                damageAssistedTrack: statisticsDamageAssistedTrack,
+                                maxXp: statisticsMaxXp,
+                                piercings: statisticsPiercings,
+                                treesCut: statisticsTreesCut,
+                                piercingsReceived: statisticsPiercingsReceived,
+                                noDamageDirectHitsReceived: statisticsNoDamageDirectHitsReceived,
+                                maxFrags: statisticsMaxFrags,
+                                explosionHitsReceived: statisticsExplosionHitsReceived,
+                                maxDamageTankID: statisticsMaxDamageTankID,
+                                directHitsReceived: statisticsDirectHitsReceived,
+                                maxDamage: statisticsMaxDamage,
+                                damageAssistedRadio: statisticsDamageAssistedRadio,
+                                all: statAll,
+                                company: nil)
     player.created = created
     player.updated = updated
-    player.privateInfo = privateInfo
     player.globalRating = globalRating
     player.lastBattleTime = lastBattleTime
-//    player.statistics = stat
+    player.statistics = stat
     return player
   }
   
@@ -232,8 +226,6 @@ struct TanksAPI {
 	
 	// method to created Tank object
 	private static func tank(fromJSON json: [AnyHashable:Any]) -> Tank? {
-    print(json)
-    print("lol")
 		guard
 			let accountID = json["account_id"] as? Int,
 			let battleLifeTime = json["battle_life_time"] as? Int,

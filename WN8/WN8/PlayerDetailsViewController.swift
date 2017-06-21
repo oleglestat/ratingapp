@@ -23,7 +23,6 @@ class PlayerDetailsViewController: UIViewController {
   
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-
     store.fetchVehicleDataOf(player) {
 			(vehicleResults) -> Void in
 			switch vehicleResults {
@@ -41,7 +40,20 @@ class PlayerDetailsViewController: UIViewController {
       switch playerDetail {
       case let .success(player):
         self.player = player
-      // TODO: - debug and fix player retrival statistics
+        guard let wins = self.player.statistics?.all?.wins,
+          let battles = self.player.statistics?.all?.battles,
+          let damageDealt = self.player.statistics?.all?.damageDealt,
+          let frags = self.player.statistics?.all?.frags,
+          let survived = self.player.statistics?.all?.survivedBattles,
+          let personalRating = self.player.globalRating
+          else {
+            return
+        }
+        self.winRate.text = String(format: "%.2f", Double(wins) / Double(battles) * 100)
+        self.personalRationg.text = String(describing: personalRating)
+        self.battles.text = String(describing: battles)
+        self.averageDamage.text = String(format: "%.2f", Double(damageDealt) / Double(battles))
+        self.killDeathRatio.text = String(format: "%.2f", Double(frags) / (Double(battles) - Double(survived)))
       case let .failure(error):
         print("Error fetching player: \(error)")
       }
@@ -51,12 +63,6 @@ class PlayerDetailsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = player.nickname
-//    let test = (self.player.statistics?.all?.wins)! / (self.player.statistics?.all?.battles)! * 100
-//    self.personalRationg.text = String(describing: self.player.globalRating)
-//    self.winRate.text = String(format: "%.2f", test)
-//    self.battles.text = String(describing: self.player.statistics?.all?.battles)
-//    self.averageDamage.text = String(format: "%.2f", (self.player.statistics?.all?.damageDealt)! / (self.player.statistics?.all?.battles)!)
-//    self.killDeathRatio.text = String(format: "%.2f", (self.player.statistics?.all?.frags)! / ((self.player.statistics?.all?.battles)! - (self.player.statistics?.all?.survivedBattles)!))
 	}
   
   func calculateAccountWN8(player: Player, exp: [expTank]) -> Int {
@@ -68,7 +74,6 @@ class PlayerDetailsViewController: UIViewController {
         for value in exp {
           if value.tankID == tank.tankID {
             expValue = value
-            print(expValue!)
           }
         }
         if let expValue = expValue {

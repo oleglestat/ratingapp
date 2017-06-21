@@ -13,7 +13,7 @@ class Player {
 	var playerID: Int
 	var created: Int?
 	var updated: Int?
-	var privateInfo: Int?
+//	var privateInfo: Int?
 	var globalRating: Int?
 	var lastBattleTime: Int?
 	var statistics: Statistics?
@@ -37,7 +37,7 @@ struct Statistics {
 	var maxFrags: Int?
 	var explosionHitsReceived: Int?
 	var maxDamageTankID: Int?
-	var frags: Int?
+//	var frags: Int?
 	var directHitsReceived: Int?
 	var maxDamage: Int?
 	var damageAssistedRadio: Int?
