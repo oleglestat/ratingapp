@@ -82,6 +82,28 @@ class DataStore {
 		}
 		return TanksAPI.vehicles(fromJSON: jsonData, player: player)
 	}
+  
+  // MARK: - Requesting player details
+  func fetchDetailsOf(_ player: Player, completion: @escaping (PlayerResults) -> Void) {
+    let url = TanksAPI.playerDetailsURL(playerID: String(player.playerID))
+    let request = URLRequest(url: url)
+    let task = session.dataTask(with: request) {
+      (data, response, error) -> Void in
+      // parsing JSON data from server
+      let result = self.processPlayerRequest(data: data, player: player, error: error)
+      OperationQueue.main.addOperation {
+        completion(result)
+      }
+    }
+    task.resume()
+  }
+  
+  private func processPlayerRequest(data: Data?, player: Player, error: Error?) -> PlayerResults {
+    guard let jsonData = data else {
+      return .failure(error!)
+    }
+    return TanksAPI.player(fromJSON: jsonData, player: player)
+  }
 	
 	// MARK: - Requesting expected values	
 	func fetchExpectedValuesData(completion: @escaping (ExpTankValues) -> Void) {

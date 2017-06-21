@@ -23,6 +23,7 @@ class PlayerDetailsViewController: UIViewController {
   
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
+
     store.fetchVehicleDataOf(player) {
 			(vehicleResults) -> Void in
 			switch vehicleResults {
@@ -32,9 +33,19 @@ class PlayerDetailsViewController: UIViewController {
         // printing wn8
         self.testLabel.text = String(self.calculateAccountWN8(player: self.player, exp: self.expValues))
 			case let .failure(error):
-				print("Error fetching players: \(error)")
+				print("Error fetching player tanks: \(error)")
 			}
 		}
+    store.fetchDetailsOf(player) {
+      (playerDetail) -> Void in
+      switch playerDetail {
+      case let .success(player):
+        self.player = player
+      // TODO: - debug and fix player retrival statistics
+      case let .failure(error):
+        print("Error fetching player: \(error)")
+      }
+    }
 	}
 
 	override func viewDidLoad() {
