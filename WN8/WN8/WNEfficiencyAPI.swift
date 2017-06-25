@@ -17,10 +17,12 @@ enum wnApiError: Error {
 
 struct WNEfficiencyAPI {
 	private static let baseURLString = "http://www.wnefficiency.net"
+//  private static let baseURLString = "http://wottactic.com"
 	
 	static func wnURL() -> URL {
 		var components = URLComponents(string: baseURLString)!
 		components.path = "/exp/expected_tank_values_latest.json"
+//    components.path = "/expected_v32.json"
 		return components.url!
 	}
 	

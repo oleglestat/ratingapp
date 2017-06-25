@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let rootViewController = window!.rootViewController as! UINavigationController
 		let requestViewController = rootViewController.topViewController as! RequestViewController
 		requestViewController.store = DataStore()
+    requestViewController.calculator = Calculator()
 		
 		return true
 	}

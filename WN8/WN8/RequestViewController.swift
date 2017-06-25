@@ -15,6 +15,7 @@ class RequestViewController: UIViewController {
 	
 	// property injection, see AppDelegate
 	var store: DataStore!
+  var calculator: Calculator!
 	var playersFound: [Player] = [] {
 		didSet {
 			tableView.reloadData()
@@ -45,6 +46,7 @@ class RequestViewController: UIViewController {
 			if let indexPath = tableView.indexPathForSelectedRow {
 				let controller = segue.destination as! PlayerDetailsViewController
 				controller.store = self.store
+        controller.calculator = self.calculator
 				controller.player = self.playersFound[indexPath.row]
 				if let value = self.expValues {
 					controller.expValues = value
