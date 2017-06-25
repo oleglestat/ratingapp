@@ -14,6 +14,8 @@ class PlayerDetailsViewController: UIViewController {
 	var player: Player!
 	var expValues: [expTank]!
   var calculator: Calculator!
+  
+  // TODO: высчитать потанковую статку и вывести ее в дитейл вьюв в таблицу, формулу тырить http://wottactic.com/wn8_standalone.html
 	
   @IBOutlet weak var testLabel: UILabel!
   @IBOutlet weak var personalRationg: UILabel!

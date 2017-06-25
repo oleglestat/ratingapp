@@ -37,6 +37,31 @@ struct Calculator {
     }
     return calculateWN8(achivedTotals, expectedTotals)
   }
+  
+  func calculateTankWN8(tank: Tank, exp: [expTank]) -> Int {
+    var expectedTotals = (expDamage: 0.0, expSpot: 0.0, expFrag: 0.0, expDef: 0.0, expWinRate: 0.0)
+    var achivedTotals = (damageDealt: 0.0, spotted: 0.0, frags: 0.0, droppedCapturePoints: 0.0, wins: 0.0, battles: 0.0)
+    var expValue: expTank?
+    for value in exp {
+      if value.tankID == tank.tankID {
+        expValue = value
+      }
+    }
+    if let expValue = expValue {
+      expectedTotals.expDamage += expValue.expDamage * Double((tank.all?.battles)!)
+      expectedTotals.expSpot += expValue.expSpot * Double((tank.all?.battles)!)
+      expectedTotals.expFrag += expValue.expFrag * Double((tank.all?.battles)!)
+      expectedTotals.expDef += expValue.expDef * Double((tank.all?.battles)!)
+      expectedTotals.expWinRate += expValue.expWinRate * Double((tank.all?.battles)!)
+      achivedTotals.damageDealt += Double((tank.all?.damageDealt)!)
+      achivedTotals.spotted += Double((tank.all?.spotted)!)
+      achivedTotals.frags += Double((tank.all?.frags)!)
+      achivedTotals.droppedCapturePoints += Double((tank.all?.droppedCapturePoints)!)
+      achivedTotals.wins += Double((tank.all?.wins)!)
+      achivedTotals.battles += Double((tank.all?.battles)!)
+    }
+    return calculateWN8(achivedTotals, expectedTotals)
+  }
 
   func calculateWN8(_ tank: (damageDealt: Double, spotted: Double, frags: Double, droppedCapturePoints: Double, wins: Double, battles: Double),
                     _ exp: (expDamage: Double, expSpot: Double, expFrag: Double, expDef: Double, expWinRate: Double)) -> Int {

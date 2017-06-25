@@ -17,6 +17,7 @@ enum Method: String {
 	case players = "/wotx/account/list/"
 	case playerPersonalData = "/wotx/account/info/"
 	case playerVehicleData = "/wotx/tanks/stats/"
+  case vehicleDetail = "/wotx/encyclopedia/vehicles/" // ?application_id=demo&tank_id=7441%2C257%2C353
 }
 
 // struct will be responsible for knowing and handling all Wargaming-related information. This includes knowing how to generate the URLs that the Wargaming API expects as well as knowing the format of the incoming JSON and how to parse that JSON into the relevant model objects.
@@ -326,6 +327,10 @@ struct TanksAPI {
 		                              survivedBattles: companySurvivedBattles,
 		                              droppedCapturePoints: companyDroppedCapturePoints)
 		return Tank(tankID: tankID,
+		            name: nil,
+		            nation: nil,
+		            type: nil,
+		            tier: nil,
 		            battleLifeTime: battleLifeTime,
 		            markOfMastery: markOfMastery,
 		            maxFrags: maxFrags,
@@ -336,5 +341,12 @@ struct TanksAPI {
 		            all: allTemp,
 		            company: companyTemp)
 	}
+  
+  // MARK: - getting vehicle details
+  static func vehicleDetailURL(tanksListID: String) -> URL {
+    return wotURL(method: .vehicleDetail, parameters: ["tank_id": tanksListID])
+  }
+  
+  
 }
 
