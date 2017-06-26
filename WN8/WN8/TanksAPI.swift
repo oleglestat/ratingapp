@@ -355,10 +355,23 @@ struct TanksAPI {
         let data = jsonDictionary["data"] as? [String:Any] else {
           return .failure(apiError.invalidJSONData)
       }
-      for (tank, details) in data {
+      var finalVehicles = [Tank]()
+      for (_, details) in data {
         if let tank = tankDetail(fromDictionary: details as! [String:Any]) {
-          
-          print(player.tanks)
+          finalVehicles.append(tank)
+        }
+      }
+      if finalVehicles.isEmpty && !data.isEmpty {
+        return .failure(apiError.invalidJSONData)
+      }
+      for vehicle in finalVehicles {
+        for i in 0..<Int((player.tanks?.count)!) {
+          if player.tanks?[i].tankID == vehicle.tankID {
+            player.tanks?[i].name = vehicle.name
+            player.tanks?[i].type = vehicle.type
+            player.tanks?[i].tier = vehicle.tier
+            player.tanks?[i].nation = vehicle.nation
+          }
         }
       }
       return .success

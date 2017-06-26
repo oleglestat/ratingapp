@@ -41,23 +41,21 @@ class PlayerDetailsViewController: UIViewController {
         (vehicleResults) -> Void in
         switch vehicleResults {
         case let .success(vehicles):
+          print("Player tanks fetched")
           self.player.tanks = vehicles
           print("\(self.player.nickname) got \(vehicles.count) tanks")
           self.testLabel.text = String(describing: self.calculator.calculateAccountWN8(player: self.player, exp: self.expValues))
-          
-          self.store.fetchVehicleDetailsOf(self.player) {
-            (status) -> Void in
-            switch status {
-            case .success:
-              print("All good")
-            case let .failure(error):
-              print("Error fetching tanks details: \(error)")
-              
-            }
-          }
-
         case let .failure(error):
           print("Error fetching player tanks: \(error)")
+        }
+      }
+      self.store.fetchVehicleDetailsOf(self.player) {
+        (status) -> Void in
+        switch status {
+        case .success:
+          print("Tank details fetched")
+        case let .failure(error):
+          print("Error fetching tanks details: \(error)")
         }
       }
     }
@@ -66,6 +64,7 @@ class PlayerDetailsViewController: UIViewController {
         (playerDetail) -> Void in
         switch playerDetail {
         case let .success(player):
+          print("Player details fetched")
           self.player = player
           guard let wins = self.player.statistics?.all?.wins,
             let battles = self.player.statistics?.all?.battles,

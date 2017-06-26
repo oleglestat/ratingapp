@@ -79,10 +79,10 @@ struct Company {
 
 struct Tank {
 	let tankID: Int?
-  let name: String?
-  let nation: String?
-  let type: String?
-  let tier: Int?
+  var name: String?
+  var nation: String?
+  var type: String?
+  var tier: Int?
 	var battleLifeTime: Int?
 	var markOfMastery: Int?
 	var maxFrags: Int?
