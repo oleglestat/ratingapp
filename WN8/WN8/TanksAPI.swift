@@ -343,10 +343,55 @@ struct TanksAPI {
 	}
   
   // MARK: - getting vehicle details
-  static func vehicleDetailURL(tanksListID: String) -> URL {
+  static func vehicleDetailsURL(tanksListID: String) -> URL {
     return wotURL(method: .vehicleDetail, parameters: ["tank_id": tanksListID])
   }
   
+  static func vehicleDetais(fromJSON data: Data, player: Player) -> VehicleDetails {
+    do {
+      let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+      guard
+        let jsonDictionary = jsonObject as? [AnyHashable:Any],
+        let data = jsonDictionary["data"] as? [String:Any] else {
+          return .failure(apiError.invalidJSONData)
+      }
+      for (tank, details) in data {
+        if let tank = tankDetail(fromDictionary: details as! [String:Any]) {
+          
+          print(player.tanks)
+        }
+      }
+      return .success
+    } catch let error {
+      return .failure(error)
+    }
+  }
   
+  private static func tankDetail(fromDictionary dic: [AnyHashable:Any]) -> Tank? {
+    guard
+      let tankID = dic["tank_id"] as? Int,
+      let type = dic["type"] as? String,
+      let shortName = dic["short_name"] as? String,
+      let tier = dic["tier"] as? Int,
+      let nation = dic["nation"] as? String
+      else {
+        print("lol")
+        return nil
+    }
+    return Tank(tankID: tankID,
+                name: shortName,
+                nation: nation,
+                type: type,
+                tier: tier,
+                battleLifeTime: nil,
+                markOfMastery: nil,
+                maxFrags: nil,
+                treesCut: nil,
+                maxXp: nil,
+                accountID: nil,
+                lastBattleTime: nil,
+                all: nil,
+                company: nil)
+  }
 }
 

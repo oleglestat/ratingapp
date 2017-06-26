@@ -44,6 +44,18 @@ class PlayerDetailsViewController: UIViewController {
           self.player.tanks = vehicles
           print("\(self.player.nickname) got \(vehicles.count) tanks")
           self.testLabel.text = String(describing: self.calculator.calculateAccountWN8(player: self.player, exp: self.expValues))
+          
+          self.store.fetchVehicleDetailsOf(self.player) {
+            (status) -> Void in
+            switch status {
+            case .success:
+              print("All good")
+            case let .failure(error):
+              print("Error fetching tanks details: \(error)")
+              
+            }
+          }
+
         case let .failure(error):
           print("Error fetching player tanks: \(error)")
         }

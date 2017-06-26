@@ -28,6 +28,11 @@ enum PlayerVehicle {
 	case failure(Error)
 }
 
+enum VehicleDetails {
+  case success
+  case failure(Error)
+}
+
 // class will handle the actual web service calls.
 class DataStore {
 	
@@ -82,6 +87,33 @@ class DataStore {
 		}
 		return TanksAPI.vehicles(fromJSON: jsonData, player: player)
 	}
+  
+  // MARK: - Requesting player vehicle data
+  func fetchVehicleDetailsOf(_ player: Player, completion: @escaping (VehicleDetails) -> Void) {
+    var tankListID = ""
+    if let tanks = player.tanks {
+      for tank in tanks {
+        tankListID.append(String(describing: tank.tankID!) + ",")
+      }
+    }
+    let url = TanksAPI.vehicleDetailsURL(tanksListID: tankListID)
+    let request = URLRequest(url: url)
+    let task = session.dataTask(with: request) {
+      (data, response, error) -> Void in
+      let result = self.processVehiclesDetails(data: data, player: player, error: error)
+      OperationQueue.main.addOperation {
+        completion(result)
+      }
+    }
+    task.resume()
+  }
+  
+  private func processVehiclesDetails(data: Data?, player: Player, error: Error?) -> VehicleDetails {
+    guard let jsonData = data else {
+      return .failure(error!)
+    }
+    return TanksAPI.vehicleDetais(fromJSON: jsonData, player: player)
+  }
   
   // MARK: - Requesting player details
   func fetchDetailsOf(_ player: Player, completion: @escaping (PlayerResults) -> Void) {
