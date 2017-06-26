@@ -355,13 +355,16 @@ struct TanksAPI {
         let data = jsonDictionary["data"] as? [String:Any] else {
           return .failure(apiError.invalidJSONData)
       }
+      print("not that")
       var finalVehicles = [Tank]()
       for (_, details) in data {
         if let tank = tankDetail(fromDictionary: details as! [String:Any]) {
           finalVehicles.append(tank)
         }
       }
+      // TODO: debug why user cant be selected again without that error
       if finalVehicles.isEmpty && !data.isEmpty {
+        print("something empty")
         return .failure(apiError.invalidJSONData)
       }
       for vehicle in finalVehicles {
