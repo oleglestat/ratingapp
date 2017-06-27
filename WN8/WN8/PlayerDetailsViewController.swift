@@ -33,6 +33,7 @@ class PlayerDetailsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.title = player.nickname
+    tanksTable.rowHeight = 70
 	}
   
   // MARK: - making calls asynchronously
@@ -77,7 +78,7 @@ class PlayerDetailsViewController: UIViewController {
             else {
               return
           }
-          self.winRate.text = String(format: "%.2f", Double(wins) / Double(battles) * 100)
+          self.winRate.text = String(format: "%.2f", Double(wins) / Double(battles) * 100) + " %"
           self.personalRationg.text = String(describing: personalRating)
           self.battles.text = String(describing: battles)
           self.averageDamage.text = String(format: "%.2f", Double(damageDealt) / Double(battles))
@@ -100,10 +101,35 @@ extension PlayerDetailsViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TankCell", for: indexPath) as! TankCell
     let tank = player.tanks![indexPath.row]
-    cell.textLabel?.text = tank.name
-    cell.detailTextLabel?.text = String(calculator.calculateTankWN8(tank: tank, exp: expValues))
+    guard let wins = tank.all?.wins,
+      let battles = tank.all?.battles,
+      let damageDealt = tank.all?.damageDealt,
+      let tier = tank.tier,
+      let type = tank.type else {
+        return cell
+    }
+    switch type {
+    case "heavyTank":
+      cell.tankClass.text = "Heavy Tank"
+    case "mediumTank":
+      cell.tankClass.text = "Medium Tank"
+    case "lightTank":
+      cell.tankClass.text = "Light Tank"
+    case "AT-SPG":
+      cell.tankClass.text = "Tank Destroyer"
+    case "SPG":
+      cell.tankClass.text = "Artillery"
+    default:
+      cell.tankClass.text = "Tank"
+    }
+    let rating = calculator.calculateTankWN8(tank: tank, exp: expValues) < 5 ? "--" : String(calculator.calculateTankWN8(tank: tank, exp: expValues))
+    cell.tankName.text = tank.name
+    cell.tier.text = String(describing: tier)
+    cell.winRate.text = String(format: "%.2f", Double(wins) / Double(battles) * 100)  + " %"
+    cell.rating.text = rating
+    cell.avgDamage.text = String(format: "%.2f", Double(damageDealt) / Double(battles))
     return cell
   }
 }
