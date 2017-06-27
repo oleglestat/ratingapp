@@ -23,6 +23,7 @@ class PlayerDetailsViewController: UIViewController {
   @IBOutlet weak var battles: UILabel!
   @IBOutlet weak var averageDamage: UILabel!
   @IBOutlet weak var killDeathRatio: UILabel!
+  @IBOutlet weak var tanksTable: UITableView!
   
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
@@ -36,7 +37,7 @@ class PlayerDetailsViewController: UIViewController {
   
   // MARK: - making calls asynchronously
   func concurentFetch() {
-    DispatchQueue.global().async {
+    DispatchQueue.global().sync {
       self.store.fetchVehicleDataOf(self.player) {
         (vehicleResults) -> Void in
         switch vehicleResults {
@@ -54,6 +55,7 @@ class PlayerDetailsViewController: UIViewController {
         switch status {
         case .success:
           print("Tank details fetched")
+          self.tanksTable.reloadData()
         case let .failure(error):
           print("Error fetching tanks details: \(error)")
         }
@@ -85,5 +87,23 @@ class PlayerDetailsViewController: UIViewController {
         }
       }
     }
+  }
+}
+
+extension PlayerDetailsViewController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if let numberOfTanks = player.tanks {
+      return numberOfTanks.count
+    }
+    return 0
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    let tank = player.tanks![indexPath.row]
+    cell.textLabel?.text = tank.name
+    cell.detailTextLabel?.text = String(calculator.calculateTankWN8(tank: tank, exp: expValues))
+    return cell
   }
 }
