@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7377F09B4E0E9714DF6E5F5A /* Pods_WN8.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B851A1268BFAE3F9A0CDFB87 /* Pods_WN8.framework */; };
 		7C1859AF1EE695950018814C /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1859AE1EE695950018814C /* Calculator.swift */; };
 		7C22B1051EC5B0E00079A583 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22B1041EC5B0E00079A583 /* RequestViewController.swift */; };
 		7C64FEFB1ED36946005979E8 /* ExpectedTankValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64FEFA1ED36946005979E8 /* ExpectedTankValues.swift */; };
@@ -19,11 +20,13 @@
 		7CB45F8E1EC5A97800A81C34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB45F8C1EC5A97800A81C34 /* LaunchScreen.storyboard */; };
 		7CD1242D1ECEC0B7009EB1B2 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */; };
 		7CD1242F1ECEC71C009EB1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1242E1ECEC71C009EB1B2 /* Player.swift */; };
+		7CD232681F3CEF58003D9E81 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 7CD232671F3CEF58003D9E81 /* tessdata */; };
 		7CDCB5521ED6BA4600342DAB /* WNEfficiencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */; };
 		7CF37FAA1F3CD97800C116A2 /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071A78603DDB88F6E0FC45AF /* Pods-WN8.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WN8.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WN8/Pods-WN8.debug.xcconfig"; sourceTree = "<group>"; };
 		7C1859AE1EE695950018814C /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		7C22B1041EC5B0E00079A583 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		7C64FEFA1ED36946005979E8 /* ExpectedTankValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectedTankValues.swift; sourceTree = "<group>"; };
@@ -38,8 +41,11 @@
 		7CB45F8F1EC5A97800A81C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		7CD1242E1ECEC71C009EB1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7CD232671F3CEF58003D9E81 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WNEfficiencyAPI.swift; sourceTree = "<group>"; };
 		7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
+		B851A1268BFAE3F9A0CDFB87 /* Pods_WN8.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WN8.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5455E9DDDEA701EDE3E7FA /* Pods-WN8.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WN8.release.xcconfig"; path = "Pods/Target Support Files/Pods-WN8/Pods-WN8.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +53,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7377F09B4E0E9714DF6E5F5A /* Pods_WN8.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1887723D202298D08BBFF89E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B851A1268BFAE3F9A0CDFB87 /* Pods_WN8.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2936AB7BECB45C23C5285024 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				071A78603DDB88F6E0FC45AF /* Pods-WN8.debug.xcconfig */,
+				FA5455E9DDDEA701EDE3E7FA /* Pods-WN8.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7C19B7451EDDD95900339703 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +113,8 @@
 			children = (
 				7CB45F821EC5A97800A81C34 /* WN8 */,
 				7CB45F811EC5A97800A81C34 /* Products */,
+				2936AB7BECB45C23C5285024 /* Pods */,
+				1887723D202298D08BBFF89E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +129,7 @@
 		7CB45F821EC5A97800A81C34 /* WN8 */ = {
 			isa = PBXGroup;
 			children = (
+				7CD232671F3CEF58003D9E81 /* tessdata */,
 				7CB45F831EC5A97800A81C34 /* AppDelegate.swift */,
 				7CB45F871EC5A97800A81C34 /* Main.storyboard */,
 				7CB45F8A1EC5A97800A81C34 /* Assets.xcassets */,
@@ -122,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CB45F921EC5A97800A81C34 /* Build configuration list for PBXNativeTarget "WN8" */;
 			buildPhases = (
+				8BD31CB7A61F1141EE4CBD18 /* [CP] Check Pods Manifest.lock */,
 				7CB45F7C1EC5A97800A81C34 /* Sources */,
 				7CB45F7D1EC5A97800A81C34 /* Frameworks */,
 				7CB45F7E1EC5A97800A81C34 /* Resources */,
+				37C9C2299DDF7906D78D2ACC /* [CP] Embed Pods Frameworks */,
+				65E589F83D35584CCA2F43AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,12 +206,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB45F8E1EC5A97800A81C34 /* LaunchScreen.storyboard in Resources */,
+				7CD232681F3CEF58003D9E81 /* tessdata in Resources */,
 				7CB45F8B1EC5A97800A81C34 /* Assets.xcassets in Resources */,
 				7CB45F891EC5A97800A81C34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37C9C2299DDF7906D78D2ACC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WN8/Pods-WN8-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WN8/Pods-WN8-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65E589F83D35584CCA2F43AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WN8/Pods-WN8-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BD31CB7A61F1141EE4CBD18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WN8-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7CB45F7C1EC5A97800A81C34 /* Sources */ = {
@@ -249,6 +334,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -300,6 +386,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -321,9 +408,11 @@
 		};
 		7CB45F931EC5A97800A81C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 071A78603DDB88F6E0FC45AF /* Pods-WN8.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 56GQH89738;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WN8/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.royalinn.WN8;
@@ -334,9 +423,11 @@
 		};
 		7CB45F941EC5A97800A81C34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA5455E9DDDEA701EDE3E7FA /* Pods-WN8.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 56GQH89738;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WN8/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.royalinn.WN8;
