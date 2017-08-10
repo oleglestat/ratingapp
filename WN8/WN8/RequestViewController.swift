@@ -14,8 +14,8 @@ class RequestViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	// property injection, see AppDelegate
-	var store: DataStore!
-  var calculator: Calculator!
+	var store = DataStore()
+  var calculator = Calculator()
 	var playersFound: [Player] = [] {
 		didSet {
 			tableView.reloadData()

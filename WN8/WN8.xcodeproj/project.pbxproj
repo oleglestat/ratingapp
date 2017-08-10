@@ -20,6 +20,7 @@
 		7CD1242D1ECEC0B7009EB1B2 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */; };
 		7CD1242F1ECEC71C009EB1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1242E1ECEC71C009EB1B2 /* Player.swift */; };
 		7CDCB5521ED6BA4600342DAB /* WNEfficiencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */; };
+		7CF37FAA1F3CD97800C116A2 /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		7CD1242E1ECEC71C009EB1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WNEfficiencyAPI.swift; sourceTree = "<group>"; };
+		7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7C22B1041EC5B0E00079A583 /* RequestViewController.swift */,
 				7C82E6D81EDC1A04005F33B6 /* PlayerDetailsViewController.swift */,
+				7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				7CDCB5521ED6BA4600342DAB /* WNEfficiencyAPI.swift in Sources */,
 				7CD1242F1ECEC71C009EB1B2 /* Player.swift in Sources */,
 				7C22B1051EC5B0E00079A583 /* RequestViewController.swift in Sources */,
+				7CF37FAA1F3CD97800C116A2 /* PhotoSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
