@@ -20,8 +20,62 @@
 		7CD1242D1ECEC0B7009EB1B2 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */; };
 		7CD1242F1ECEC71C009EB1B2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1242E1ECEC71C009EB1B2 /* Player.swift */; };
 		7CDCB5521ED6BA4600342DAB /* WNEfficiencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */; };
+		7CE8D4371F42F3FF00152771 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CE8D4271F42EA2B00152771 /* GPUImage.framework */; };
+		7CE8D4381F42F3FF00152771 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7CE8D4271F42EA2B00152771 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7CF37FAA1F3CD97800C116A2 /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CE8D4221F42EA2B00152771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC6E7CAB1C39A9D8006DF678;
+			remoteInfo = GPUImage_macOS;
+		};
+		7CE8D4241F42EA2B00152771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC6E7CB51C39A9D8006DF678;
+			remoteInfo = GPUImageTests_macOS;
+		};
+		7CE8D4261F42EA2B00152771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9E34E91E524A2200B8604F;
+			remoteInfo = GPUImage_iOS;
+		};
+		7CE8D4281F42EA2B00152771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9E34F11E524A2200B8604F;
+			remoteInfo = GPUImageTests_iOS;
+		};
+		7CE8D4391F42F3FF00152771 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9E34E81E524A2200B8604F;
+			remoteInfo = GPUImage_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CE8D43B1F42F3FF00152771 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7CE8D4381F42F3FF00152771 /* GPUImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C1859AE1EE695950018814C /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
@@ -39,6 +93,7 @@
 		7CD1242C1ECEC0B7009EB1B2 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		7CD1242E1ECEC71C009EB1B2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7CDCB5511ED6BA4600342DAB /* WNEfficiencyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WNEfficiencyAPI.swift; sourceTree = "<group>"; };
+		7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		7CF37FA91F3CD97800C116A2 /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE8D4371F42F3FF00152771 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +143,7 @@
 		7CB45F771EC5A97800A81C34 = {
 			isa = PBXGroup;
 			children = (
+				7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */,
 				7CB45F821EC5A97800A81C34 /* WN8 */,
 				7CB45F811EC5A97800A81C34 /* Products */,
 			);
@@ -115,6 +172,17 @@
 			path = WN8;
 			sourceTree = "<group>";
 		};
+		7CE8D41C1F42EA2B00152771 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7CE8D4231F42EA2B00152771 /* GPUImage.framework */,
+				7CE8D4251F42EA2B00152771 /* GPUImageTests_macOS.xctest */,
+				7CE8D4271F42EA2B00152771 /* GPUImage.framework */,
+				7CE8D4291F42EA2B00152771 /* GPUImageTests_iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +193,12 @@
 				7CB45F7C1EC5A97800A81C34 /* Sources */,
 				7CB45F7D1EC5A97800A81C34 /* Frameworks */,
 				7CB45F7E1EC5A97800A81C34 /* Resources */,
+				7CE8D43B1F42F3FF00152771 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7CE8D43A1F42F3FF00152771 /* PBXTargetDependency */,
 			);
 			name = WN8;
 			productName = WN8;
@@ -163,12 +233,49 @@
 			mainGroup = 7CB45F771EC5A97800A81C34;
 			productRefGroup = 7CB45F811EC5A97800A81C34 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7CE8D41C1F42EA2B00152771 /* Products */;
+					ProjectRef = 7CE8D41B1F42EA2B00152771 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7CB45F7F1EC5A97800A81C34 /* WN8 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7CE8D4231F42EA2B00152771 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 7CE8D4221F42EA2B00152771 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7CE8D4251F42EA2B00152771 /* GPUImageTests_macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests_macOS.xctest;
+			remoteRef = 7CE8D4241F42EA2B00152771 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7CE8D4271F42EA2B00152771 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 7CE8D4261F42EA2B00152771 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7CE8D4291F42EA2B00152771 /* GPUImageTests_iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests_iOS.xctest;
+			remoteRef = 7CE8D4281F42EA2B00152771 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7CB45F7E1EC5A97800A81C34 /* Resources */ = {
@@ -203,6 +310,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CE8D43A1F42F3FF00152771 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage_iOS;
+			targetProxy = 7CE8D4391F42F3FF00152771 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7CB45F871EC5A97800A81C34 /* Main.storyboard */ = {
@@ -322,6 +437,7 @@
 		7CB45F931EC5A97800A81C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 56GQH89738;
 				INFOPLIST_FILE = WN8/Info.plist;
@@ -335,6 +451,7 @@
 		7CB45F941EC5A97800A81C34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 56GQH89738;
 				INFOPLIST_FILE = WN8/Info.plist;
